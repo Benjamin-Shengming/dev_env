@@ -1,0 +1,14 @@
+gcc
+%c -std=c11
+%cpp -std=c++2a
+%h --include=spdlog.h
+-I./lib/third_party/spdlog-1.2.1/include/
+-I./lib/third_party
+-I./lib/third_party/spdlog-1.2.1
+-I./lib/pkcs11
+-I./lib/pkcs11_standard
+-I./lib/pkcs11_standard/pkcs11-v2.20
+-I./lib/pkcs11_standard/pkcs11-v2.40
+-I./lib/misc
+-I./lib/log/
+-DMACRO
