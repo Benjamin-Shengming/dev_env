@@ -3,8 +3,8 @@
 #set -e
 
 # install nvm node
-NVM_VERSION=v0.34.0
-NODE_VERSION=v10.16.0
+NVM_VERSION=v0.35.2
+NODE_VERSION=v12.16.0
 curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | bash
 
 source ~/.nvm/nvm.sh && \
