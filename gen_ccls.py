@@ -7,6 +7,7 @@ import os
 
 def generate_ccls_file(args):
     ccls_str= '''gcc
+%compile_commands.json
 %c -std=c11
 %cpp -std=c++2a
 '''
