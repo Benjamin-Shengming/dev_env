@@ -4,6 +4,7 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 
+Plug 'neomake/neomake'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'derekwyatt/vim-fswitch'
@@ -12,7 +13,6 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
 Plug 'honza/vim-snippets'
@@ -79,8 +79,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-
-
+set autoread
+set guifont=Monospace:h9
+set mouse=a
 "
 "FSwitch {
     " header/source switches
@@ -94,13 +95,14 @@ set softtabstop=4
 " color schema
 colorscheme gruvbox
 
-if !exists('g:GtkGuiLoaded')
 " NerdTree {
+if !exists('g:GtkGuiLoaded')
     autocmd VimEnter * NERDTree
     let NERDTreeWinPos="left"
     let NERDTreeIgnore=['\.pyc']
-" }
 endif
+" }
+"
 " powerline {
 	let g:Powerline_colorscheme='solarized256'
 " }
@@ -116,6 +118,7 @@ endif
 " }
 "
 "
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.o'
 
 " language service client setup
 set hidden
@@ -146,11 +149,15 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-let g:python3_host_prog="/usr/bin/python3"
-
-call rpcnotify(1, 'Gui', 'Font', 'DejaVu Sans Mono 9')
 
 
-
-
-
+" neomake
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
+" When writing a buffer (no delay), and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 500ms; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
