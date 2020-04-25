@@ -33,7 +33,7 @@ Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'morhetz/gruvbox'
-
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 set timeoutlen=500 ttimeoutlen=0
