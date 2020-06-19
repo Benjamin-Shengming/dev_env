@@ -8,7 +8,8 @@ Plug 'neomake/neomake'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'derekwyatt/vim-fswitch'
-Plug 'Lokaltog/vim-powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'kien/ctrlp.vim'
@@ -36,6 +37,7 @@ Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'morhetz/gruvbox'
 Plug 'mattn/emmet-vim'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 set timeoutlen=500 ttimeoutlen=0
@@ -105,9 +107,6 @@ if !exists('g:GtkGuiLoaded')
 endif
 " }
 "
-" powerline {
-	let g:Powerline_colorscheme='solarized256'
-" }
 
 " indent guid line {
 	let g:indent_guides_enable_on_vim_startup=1
@@ -165,3 +164,8 @@ call neomake#configure#automake('rw', 1000)
 " Full config: when writing or reading a buffer, and on changes in insert and
 " normal mode (after 500ms; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
+
+
+" rg
+let g:rg_command = 'rg --vimgrep -S'
+
