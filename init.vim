@@ -17,6 +17,8 @@ Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'moll/vim-bbye'
+Plug 'rhysd/vim-clang-format'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -126,9 +128,9 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
     \ 'c': ['ccls'],
-    \ 'c++': ['ccls'],
-    \ 'cpp': ['ccls'],
-    \ 'cc': ['ccls'],
+    \ 'c++': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'cc': ['clangd'],
     \ 'php': ['php', '~/dev_env/vendor/felixfbecker/language-server/bin/php-language-server.php'],
     \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -149,7 +151,9 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-
+" clang format
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format=1
 
 " neomake
 " When writing a buffer (no delay).
