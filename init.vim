@@ -8,7 +8,8 @@ Plug 'neomake/neomake'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'derekwyatt/vim-fswitch'
-Plug 'Lokaltog/vim-powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
 Plug 'kien/ctrlp.vim'
@@ -21,6 +22,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mxw/vim-jsx'
 Plug 'alvan/vim-closetag'
+Plug 'moll/vim-bbye'
+Plug 'rhysd/vim-clang-format'
+
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -38,6 +43,7 @@ Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'morhetz/gruvbox'
 Plug 'mattn/emmet-vim'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 set timeoutlen=500 ttimeoutlen=0
@@ -107,9 +113,6 @@ if !exists('g:GtkGuiLoaded')
 endif
 " }
 "
-" powerline {
-	let g:Powerline_colorscheme='solarized256'
-" }
 
 " indent guid line {
 	let g:indent_guides_enable_on_vim_startup=1
@@ -130,12 +133,19 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
+<<<<<<< HEAD
     \ 'c': ['clangd'],
     \ 'c++': ['clangd'],
     \ 'cpp': ['clangd'],
     \ 'cc': ['clangd'],
     \ 'rs': ['rls'],
     \ 'rust': ['rls'],
+=======
+    \ 'c': ['ccls'],
+    \ 'c++': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'cc': ['clangd'],
+>>>>>>> 6f22d2f8de50ca378c55b56620767721c36042dc
     \ 'php': ['php', '~/dev_env/vendor/felixfbecker/language-server/bin/php-language-server.php'],
     \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -156,7 +166,9 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
-
+" clang format
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format=1
 
 " neomake
 " When writing a buffer (no delay).
@@ -168,3 +180,8 @@ call neomake#configure#automake('rw', 1000)
 " Full config: when writing or reading a buffer, and on changes in insert and
 " normal mode (after 500ms; no delay when writing).
 call neomake#configure#automake('nrwi', 500)
+
+
+" rg
+let g:rg_command = 'rg --vimgrep -S'
+
