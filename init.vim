@@ -133,19 +133,12 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
-<<<<<<< HEAD
     \ 'c': ['clangd'],
     \ 'c++': ['clangd'],
     \ 'cpp': ['clangd'],
     \ 'cc': ['clangd'],
     \ 'rs': ['rls'],
     \ 'rust': ['rls'],
-=======
-    \ 'c': ['ccls'],
-    \ 'c++': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'cc': ['clangd'],
->>>>>>> 6f22d2f8de50ca378c55b56620767721c36042dc
     \ 'php': ['php', '~/dev_env/vendor/felixfbecker/language-server/bin/php-language-server.php'],
     \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
