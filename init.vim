@@ -17,6 +17,10 @@ Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'pangloss/vim-javascript'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mxw/vim-jsx'
+Plug 'alvan/vim-closetag'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -76,9 +80,9 @@ syntax on
 
 filetype indent on
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoread
 set guifont=Monospace:h9
 set mouse=a
@@ -124,11 +128,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.o'
 set hidden
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
-    \ 'c': ['ccls'],
-    \ 'c++': ['ccls'],
-    \ 'cpp': ['ccls'],
-    \ 'cc': ['ccls'],
+    \ 'c': ['clangd'],
+    \ 'c++': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'cc': ['clangd'],
+    \ 'rs': ['rls'],
+    \ 'rust': ['rls'],
     \ 'php': ['php', '~/dev_env/vendor/felixfbecker/language-server/bin/php-language-server.php'],
     \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
