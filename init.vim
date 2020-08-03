@@ -178,3 +178,6 @@ call neomake#configure#automake('nrwi', 500)
 " rg
 let g:rg_command = 'rg --vimgrep -S'
 
+
+" js-beautifier
+autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
