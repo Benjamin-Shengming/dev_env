@@ -24,7 +24,7 @@ Plug 'mxw/vim-jsx'
 Plug 'alvan/vim-closetag'
 Plug 'moll/vim-bbye'
 Plug 'rhysd/vim-clang-format'
-
+Plug 'APZelos/blamer.nvim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -139,6 +139,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cc': ['clangd'],
     \ 'rs': ['rls'],
     \ 'rust': ['rls'],
+    \ 'sh': ['bash-language-server', 'start'],
     \ 'php': ['php', '~/dev_env/vendor/felixfbecker/language-server/bin/php-language-server.php'],
     \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -178,3 +179,5 @@ call neomake#configure#automake('nrwi', 500)
 " rg
 let g:rg_command = 'rg --vimgrep -S'
 
+" blamer
+let g:blamer_enabled = 1
