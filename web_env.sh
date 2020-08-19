@@ -21,4 +21,4 @@ npm install -g typescript-language-server
 npm install -g bash-language-server --unsafe-perm=true --allow-root
 npm install -g vscode-css-languageserver-bin
 npm install -g vscode-html-languageserver-bin
-
+npm install -g js-beautify
