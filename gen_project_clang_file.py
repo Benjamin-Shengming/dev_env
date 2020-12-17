@@ -38,7 +38,8 @@ def is_cpp_file(f):
             or ".hpp" in f
             or ".cpp" in f
             or ".cc" in f
-            or "cxx" in f):
+            or ".c" in f
+            or ".cxx" in f):
 
         return True
     return False
@@ -85,7 +86,8 @@ def gen_clang_file(args):
     for x in args.include:
         dirs_need_include = dirs_need_include.union(scan_folder(args, x))
     # analyze project
-    dirs_need_include = dirs_need_include.union(scan_folder(args, args.project))
+    dirs_need_include = dirs_need_include.union(
+        scan_folder(args, args.project))
 
     # generate -I
     lines = set()
@@ -93,24 +95,29 @@ def gen_clang_file(args):
     for x in dirs_need_include:
         lines.add(line_f.format(x))
 
+    lines = list(lines)
+    lines.sort()
     # add some fix path
-    lines = lines.union(set([
-      "-Wall\n",
-      "-fPIC\n",
-      "-std=c++11\n",
-      "-Iinclude\n",
-      "-Wfatal-errors\n",
-      "-unresolved-symbols=ignore-in-shared-libs\n",
-      "-O3\n",
-      "-pthread\n",
-      "-g\n",
-      "-DDEBUG\n",
-      "-DENABLE_PROFILE\n",
-      "-I.\n",
-      "-I/usr/lib/x86_64-linux-gnu\n",
-    ]))
-    project_clang_file = os.path.join(args.project, ".clang")
-    print(lines)
+    lines += ["-I./\n",
+              "-I/usr/lib/x86_64-linux-gnu\n"]
+
+    lines = [
+        "-Wall\n",
+        "-fPIC\n",
+        "-std=c++11\n",
+        "-Iinclude\n",
+        "-Wfatal-errors\n",
+        "-unresolved-symbols=ignore-in-shared-libs\n",
+        "-O3\n",
+        "-pthread\n",
+        "-g\n",
+        "-DDEBUG\n",
+        "-DENABLE_PROFILE\n",
+    ] + lines
+    for x in lines:
+        print(x)
+
+    project_clang_file = os.path.join(args.project, "compile_flags.txt")
     with open(project_clang_file, "w") as pf:
         pf.writelines(lines)
 
