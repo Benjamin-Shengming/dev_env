@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # install python
-sudo pacman -Sy python-pip
+sudo apt install -y python3-pip
 
 # install python
 sudo pip install -U setuptools

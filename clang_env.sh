@@ -1,6 +1,6 @@
 #! /bin/bash
 
 #install clangd c/cpp
-sudo pacman -S gcc
-sudo pacman -S g++
-sudo pacman -S clang
+sudo apt install -y gcc
+sudo apt install -y g++
+sudo apt install -y clang
