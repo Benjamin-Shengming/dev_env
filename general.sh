@@ -2,37 +2,35 @@
 
 #set -e
 # udpate list
-sudo pacman -Sy update
+sudo apt install -y update
 
 
 # install basic commands
-sudo pacman -Sy install apt-utils
-sudo pacman -Sy install software-properties-common
-sudo pacman -Sy install curl
-sudo pacman -Sy install wget
-sudo pacman -Sy install build-essential
-sudo pacman -Sy install make
-sudo pacman -Sy install git
-sudo pacman -Sy install iproute2
-sudo pacman -Sy install ssh
-sudo pacman -Sy install sshfs
-sudo pacman -Sy install apache2
-sudo pacman -Sy install autoconf
-sudo pacman -Sy install automake
-sudo pacman -Sy install cmake
-sudo pacman -Sy install fish
-sudo pacman -Sy install g++
-sudo pacman -Sy install gettext
-sudo pacman -Sy install git
-sudo pacman -Sy install libtool
-sudo pacman -Sy install libtool-bin
-sudo pacman -Sy install lua5.3
-sudo pacman -Sy install ninja-build
-sudo pacman -Sy install pkg-config
-sudo pacman -Sy install unzip
-sudo pacman -Sy install xclip
-sudo pacman -Sy install xfonts-utils
-sudo pacman -Sy install tmux
-sudo cp .tmux.conf ~/
-sudo cp sysctl.conf /etc/sysctl.conf
+sudo apt install -y apt-utils
+sudo apt install -y software-properties-common
+sudo apt install -y curl
+sudo apt install -y wget
+sudo apt install -y build-essential
+sudo apt install -y make
+sudo apt install -y git
+sudo apt install -y iproute2
+sudo apt install -y ssh
+sudo apt install -y sshfs
+sudo apt install -y apache2
+sudo apt install -y autoconf
+sudo apt install -y automake
+sudo apt install -y cmake
+sudo apt install -y fish
+sudo apt install -y g++
+sudo apt install -y gettext
+sudo apt install -y git
+sudo apt install -y libtool
+sudo apt install -y libtool-bin
+sudo apt install -y lua5.3
+sudo apt install -y ninja-build
+sudo apt install -y pkg-config
+sudo apt install -y unzip
+sudo apt install -y xclip
+sudo apt install -y xfonts-utils
+sudo apt install -y tmux
 
