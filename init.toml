@@ -86,4 +86,3 @@ auto_completion_tab_key_behavior = "smart"
     bootstrap_after = 'myspacevim#after'
     project_rooter_patterns = ['.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', '!node_packages/']
     project_rooter_outermost = false
-    filetree_direction = 'left'
