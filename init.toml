@@ -11,7 +11,7 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "gruvbox"
+    colorscheme = "onedark"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -23,6 +23,12 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
+    enable_projects_cache=false
+    project_rooter_automatically=true
+    project_rooter_outermost = false
+    project_rooter_patterns = ['.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', '!node_packages/']
+    bootstrap_before = 'myspacevim#before'
+    bootstrap_after = 'myspacevim#after'
 
 # Enable autocomplete layer
 [[layers]]
@@ -37,6 +43,12 @@ auto_completion_tab_key_behavior = "smart"
 [[layers]]
   name = 'lang#c'
   enable_clang_syntax_highlight = true
+  clang_flag = ['-I/user/include']
+  [layer.clang_std]
+    c = "c11"
+    cpp = "c++1z"
+    objc = "c11"
+    objcpp = "c++1z"
 
 [[layers]]
   name = 'lang#python'
@@ -55,6 +67,12 @@ auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
   name = 'lang#javascript'
+  
+[[layers]]
+  name = 'lang#html'
+
+[[layers]]
+  name = 'lang#markdown'
 
 [[layers]]
   name = "git"
@@ -72,8 +90,13 @@ auto_completion_tab_key_behavior = "smart"
     "sh",
     "python",
     "cpp",
-    "c"
+    "c",
+    "html",
+    "php"
   ]
+  [layers.override_cmd]
+    cpp = ["ccls", "--init"," \" {\\\"cache\\\": {\\\"directory\\\": \\\"/tmp/ccls-cache\\\"}} \" "]
+    c = ["ccls", "--init"," \" {\\\"cache\\\": {\\\"directory\\\": \\\"/tmp/ccls-cache\\\"}} \" "]
 
 [[layers]]
   name = "ctrlp"
@@ -81,8 +104,3 @@ auto_completion_tab_key_behavior = "smart"
 [[layers]]
   name = "format"
 
-[options]
-    bootstrap_before = 'myspacevim#before'
-    bootstrap_after = 'myspacevim#after'
-    project_rooter_patterns = ['.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', '!node_packages/']
-    project_rooter_outermost = false
