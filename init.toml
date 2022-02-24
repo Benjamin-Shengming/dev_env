@@ -42,9 +42,6 @@ auto_completion_tab_key_behavior = "smart"
   name = 'lang#python'
 
 [[layers]]
-  name = 'lang#rust'
-
-[[layers]]
   name = 'lang#php'
 
 [[layers]]
@@ -67,13 +64,14 @@ auto_completion_tab_key_behavior = "smart"
 [[layers]]
   name = "lsp"
   filetypes = [
-    "rust",
     "javascript",
     "sh",
     "python",
     "cpp",
-    "c"
+    "c",
+    "html"
   ]
+enabled_clients = ['vimls', 'clangd', 'pyls', 'pylsp', 'bash-language-server', 'typescript-language-server', 'html-languageserver']
 
 [[layers]]
   name = "ctrlp"
