@@ -11,7 +11,7 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "onedark"
+    colorscheme = "gruvbox"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
@@ -23,8 +23,6 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
-    enable_projects_cache=false
-    project_rooter_automatically=true
     project_rooter_outermost = false
     project_rooter_patterns = ['.git/', '_darcs/', '.hg/', '.bzr/', '.svn/', '!node_packages/']
     bootstrap_before = 'myspacevim#before'
@@ -43,12 +41,6 @@ auto_completion_tab_key_behavior = "smart"
 [[layers]]
   name = 'lang#c'
   enable_clang_syntax_highlight = true
-  clang_flag = ['-I/user/include']
-  [layer.clang_std]
-    c = "c11"
-    cpp = "c++1z"
-    objc = "c11"
-    objcpp = "c++1z"
 
 [[layers]]
   name = 'lang#python'
@@ -67,7 +59,7 @@ auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
   name = 'lang#javascript'
-  
+
 [[layers]]
   name = 'lang#html'
 
@@ -83,6 +75,9 @@ auto_completion_tab_key_behavior = "smart"
   default_height = 30
 
 [[layers]]
+  name = 'gtags'
+
+[[layers]]
   name = "lsp"
   filetypes = [
     "rust",
@@ -94,13 +89,20 @@ auto_completion_tab_key_behavior = "smart"
     "html",
     "php"
   ]
-  [layers.override_cmd]
-    cpp = ["ccls", "--init"," \" {\\\"cache\\\": {\\\"directory\\\": \\\"/tmp/ccls-cache\\\"}} \" "]
-    c = ["ccls", "--init"," \" {\\\"cache\\\": {\\\"directory\\\": \\\"/tmp/ccls-cache\\\"}} \" "]
+ enabled_clients = ['vimls', 'clangd', 'pyright','phpactor', 'css-languageserver', 'html-languageserver', 'php', 'pylsp', 'pyls', 'rustup', 'bash-language-server', 'typescript-language-server']
 
 [[layers]]
   name = "ctrlp"
 
 [[layers]]
   name = "format"
+
+[[layers]]
+  name = 'edit'
+
+[[layers]]
+  name = 'checkers'
+
+[[layers]]
+  name = "VersionControl"
 
